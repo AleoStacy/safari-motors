@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./Navbar";
 import LandingPage from "./Pages/LandingPage";
 import Booking from "./Pages/Booking";
@@ -6,6 +6,7 @@ import Contacts from "./Pages/Contacts";
 import Gallery from "./Pages/Gallery";
 import Home from "./Pages/Home";
 import Reviews from "./Pages/Reviews";
+
 function App() {
   return (
     <Router>
@@ -21,4 +22,5 @@ function App() {
     </Router>
   );
 }
+
 export default App;
