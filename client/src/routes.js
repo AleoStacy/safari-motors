@@ -16,10 +16,17 @@ const routes = [
       path: "/",
       element: <App />,
       children: [
-        {path:"/", element:<LandingPage/>}
+        {path:"/", element:<LandingPage/>}, 
+        {path:"/home", element:<Home/>},
+        {path:"/booking", element:<Booking/>},
+        {path:"/contacts", element:<Contacts/>},
+        {path:"/gallery", element:<Gallery/>},
+        {path:"/reviews", element:<Reviews/>},
+        
       ],
     
-    }
+    },
+
 ]
 
 export default routes;
