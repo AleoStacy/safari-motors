@@ -4,7 +4,7 @@ import aboutImage from "../images/about-image.jpg";
 import mtKenya from "../images/mt-kenya.jpg";
 import maasaiMara from "../images/maasai-mara.jpg";
 import Diani from "../images/Diani.jpg";
-import Footer from "../Footer"; // Correct path to access Footer.js
+import Footer from "../components/Footer"; // Correct path to access Footer.js
 const LandingPage = () => {
   const handleCardClick = (url) => {
     window.location.href = url;
