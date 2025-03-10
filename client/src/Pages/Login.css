@@ -1,0 +1,51 @@
+/* Background Styling */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url("../images/Diani.jpg") no-repeat center center/cover;
+  font-family: "Quicksand", sans-serif;
+
+}
+
+/* Blurred Form Box */
+.login-box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  /* border-radius: 10px; */
+  backdrop-filter: blur(10px);
+  width: 350px;
+  /* text-align: center; */
+}
+
+/* Input Fields */
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+
+/* Button Styling */
+.login-box button {
+  width: 100%;
+  padding: 10px;
+  background-color: #8B4513;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background-color: #8B4513;
+}
+
+/* Link to Signup */
+.signup-link {
+  margin-top: 10px;
+  display: block;
+}

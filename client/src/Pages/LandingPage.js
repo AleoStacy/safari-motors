@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./LandingPage.css";
 import aboutImage from "../images/about-image.jpg";
 import mtKenya from "../images/mt-kenya.jpg";
@@ -39,8 +40,10 @@ const LandingPage = () => {
         <div className="hero-section">
           <h1 className="first-heading">Experience the Thrills <br /> of Kenyan Safaris</h1>
           <p className="paragraph">Book your dream safari experience today <br /> and embark on an unforgettable adventure.</p>
+          <Link to ="./safari">
           <button className="cta-button">Explore Now</button>
-          <button className="scnd-button">Book Now</button>
+          </Link>
+          {/* <button className="scnd-button">Book Now</button> */}
         </div>
       </div>
 
@@ -50,12 +53,14 @@ const LandingPage = () => {
         <div className="about-container">
           <div className="about-text">
             <h1 className="para">Embark on a Tailor-Made Kenyan Safari Adventure.</h1>
-            <p>At Thrills and Spills, we specialize in creating unforgettable customized Kenyan safaris. From the moment you contact us to the moment we bid you farewell, we ensure a seamless and personalized experience.</p>
+            <p>At safari, we specialize in creating unforgettable customized Kenyan safaris. From the moment you contact us to the moment we bid you farewell, we ensure a seamless and personalized experience.</p>
             <h1 className="para">Unforgettable Safaris</h1>
             <p>Discover the breathtaking landscapes and wildlife of Kenya with our expert guides.</p>
             <h1 className="para">Customized Experiences</h1>
             <p>We offer personalized safaris that cater to your specific interests and preferences.</p>
+            < Link to="/safari">
             <button className="cta-button">Book Now</button>
+            </Link>
           </div>
           <div className="about-image-container">
             <img src={aboutImage} alt="Kenyan Safari" className="about-image" />
@@ -67,7 +72,7 @@ const LandingPage = () => {
       <section className="destinations" id="destinations">
         <div className="destinations-container">
           <h2>Discover Our Amazing Destinations</h2>
-          <p>Explore Kenya’s most breathtaking landscapes.</p>
+          {/* <p>Explore Kenya’s most breathtaking landscapes.</p> */}
           <div className="destinations-grid">
             <div className="destination-card" onClick={() => handleCardClick("https://en.wikipedia.org/wiki/Maasai_Mara")}> 
               <img src={maasaiMara} alt="Maasai Mara" />
@@ -102,7 +107,9 @@ const LandingPage = () => {
         </div>
         <p>Still have questions?</p>
         <p>Contact us for more information</p>
-        <button className="faq-button">Contact Us</button>
+        < Link to ="/contacts">
+        <button className="faq-button">Contact Us</button> 
+        </Link>       
       </section>
       <Footer /> 
     </>

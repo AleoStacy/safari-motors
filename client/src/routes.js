@@ -1,15 +1,13 @@
 import App from "./App"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
 import LandingPage from "./Pages/LandingPage";
 import Booking from "./Pages/Booking";
 import Contacts from "./Pages/Contacts";
 import Gallery from "./Pages/Gallery";
 import Home from "./Pages/Home";
 import Reviews from "./Pages/Reviews";
-
-
-
+import Safari from "./Pages/Safari";
+import Login from "./Pages/Login";
+import SignUp from "./Pages/SignUp";
 
 const routes = [
     {
@@ -22,7 +20,11 @@ const routes = [
         {path:"/contacts", element:<Contacts/>},
         {path:"/gallery", element:<Gallery/>},
         {path:"/reviews", element:<Reviews/>},
-        
+        {path:"/safari", element:<Safari/>},
+        {path: "/login", element: <Login/>},
+        {path: "/signup", element: <SignUp/>},
+        {path: "/contacts", element: <Contacts/>},
+
       ],
     
     },

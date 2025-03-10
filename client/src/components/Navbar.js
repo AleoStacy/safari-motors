@@ -27,9 +27,9 @@ const Navbar = () => {
       <ul className="nav-links">
         <li><Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Home</Link></li>
         <li><Link to="/" onClick={(e) => { e.preventDefault(); scrollToSection("about"); }}>About</Link></li>
-        <li><Link to="/services">Services</Link></li>
-        <li><Link to="/gallery">Safari</Link></li>
-        <li><Link to="/contact">Contact</Link></li>
+        {/* <li><Link to="/services">Services</Link></li> */}
+        <li><Link to="/safari">Safari</Link></li>
+        <li><Link to="/contacts">Contact</Link></li>
       </ul>
       <div className="auth-links">
         <Link to="/signup" className="signup">Sign Up</Link>
