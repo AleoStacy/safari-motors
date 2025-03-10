@@ -1,5 +1,4 @@
 import App from "./App"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import LandingPage from "./Pages/LandingPage";
 import Booking from "./Pages/Booking";

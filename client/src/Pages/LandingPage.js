@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./LandingPage.css";
 import aboutImage from "../images/about-image.jpg";
 import mtKenya from "../images/mt-kenya.jpg";
@@ -12,21 +12,22 @@ const LandingPage = () => {
 
   // FAQ Section State
   const [openIndex, setOpenIndex] = useState(null);
+  const [faqs,setFaqs] = useState([])
 
-  const faqs = [
-    {
-      question: "What is included in a safari package?",
-      answer: "Our safari packages include accommodation, meals, game drives, park fees, and a professional guide.",
-    },
-    {
-      question: "How do I book a safari?",
-      answer: "You can book directly through our website or contact our team for a customized experience.",
-    },
-    {
-      question: "What should I pack for a safari?",
-      answer: "Light clothing, a hat, sunscreen, binoculars, and a camera are highly recommended.",
-    },
-  ];
+  function findFaqs(){
+    try{
+    fetch('http://localhost:1337/api/faqs')
+     .then(response => response.json())
+     .then(data => setFaqs(data.data))
+     .then(console.log(faqs))
+    
+    }
+
+    catch(error){
+      console.log(error)
+    }
+  }
+  useEffect(()=>{findFaqs()},[])
 
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
