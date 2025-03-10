@@ -6,6 +6,15 @@ import mtKenya from "../images/mt-kenya.jpg";
 import maasaiMara from "../images/maasai-mara.jpg";
 import Diani from "../images/Diani.jpg";
 import Footer from "../components/Footer"; // Correct path to access Footer.js
+import Pixi from "../images/pixi.jpg";
+import Elephat from "../images/Elephat.jpg"
+import Antelopes from "../images/Antelopes.jpg"
+import buffalo from "../images/buffalo.jpg"
+import Lion from "../images/Lion.jpg"
+import Ostrich from "../images/Ostrich.jpg"
+import wildebeast from "../images/wildebeast.jpg"
+import cheetah from "../images/cheetah.jpg"
+
 const LandingPage = () => {
   const handleCardClick = (url) => {
     window.location.href = url;
@@ -58,16 +67,30 @@ const LandingPage = () => {
             <p>Discover the breathtaking landscapes and wildlife of Kenya with our expert guides.</p>
             <h1 className="para">Customized Experiences</h1>
             <p>We offer personalized safaris that cater to your specific interests and preferences.</p>
-            < Link to="/safari">
+            {/* < Link to="/safari">
             <button className="cta-button">Book Now</button>
-            </Link>
-          </div>
+            </Link> */}
+          </div>         
           <div className="about-image-container">
             <img src={aboutImage} alt="Kenyan Safari" className="about-image" />
           </div>
         </div>
       </section>
-
+{/* second About Section */}
+<section className="second-about" id="about">
+        <div className="second-about-container">
+          <div className="second-about-text">
+          <h1 className="para">Sustainable Tourism</h1>
+          <p>We support eco-friendly tourism practices that benefit local communities and wildlife conservation.</p>            
+            <p>Your safety is our top priority. We work with trusted and experienced guides who are knowledgeable about the local wildlife and terrain. We also provide comprehensive travel insurance to ensure peace of mind during your safari.</p>
+            <p>We prioritize customer satisfaction by offering tailored safari experiences that match your adventure spirit.</p>
+            <p>Kenya is home to a diverse range of wildlife, including elephants, lions, giraffes, zebras, and more. The exact animals you will see depend on the location and time of year. Our expert guides will take you to the best spots for wildlife sightings.</p>
+          </div>         
+          <div className="second-image-container">
+            <img src={Pixi} alt="Kenyan Safari" className="about-image" />
+          </div>
+        </div>
+      </section>
       {/* Destination Section */}
       <section className="destinations" id="destinations">
         <div className="destinations-container">
@@ -106,11 +129,24 @@ const LandingPage = () => {
           ))}
         </div>
         <p>Still have questions?</p>
-        <p>Contact us for more information</p>
         < Link to ="/contacts">
         <button className="faq-button">Contact Us</button> 
         </Link>       
       </section>
+{/* Image Gallery Section */}
+{/* Image Gallery Section */}
+<section className="image-gallery">
+  <div className="gallery-container">
+    <img src={Elephat} alt="Safari Moment 1" className="gallery-image" />
+    <img src={Ostrich} alt="Safari Moment 2" className="gallery-image" />
+    <img src={Antelopes} alt="Safari Moment 3" className="gallery-image" />
+    <img src={buffalo} alt="Safari Moment 4" className="gallery-image" />
+    <img src={Lion} alt="Safari Moment 5" className="gallery-image" />
+    <img src={cheetah} alt="Safari Moment 6" className="gallery-image" />
+    <img src={wildebeast} alt="Safari Moment 6" className="gallery-image" />
+  </div>
+</section>
+
       <Footer /> 
     </>
   );

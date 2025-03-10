@@ -9,15 +9,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(228, 84, 0, 0.328);
-  backdrop-filter: blur(5px);
+  background: white;
+  /* backdrop-filter: blur(5px); */
   transition: background 0.3s ease;
   z-index: 1000;
   font-family: "Quicksand", sans-serif;
 }
 
 .navbar.scrolled {
-  background: rgba(228, 84, 0, 0.328);
+  background: rgba(248, 247, 246, 0.328);
   backdrop-filter: blur(5px);
 }
 
@@ -31,7 +31,7 @@
 
 .nav-links li a {
   text-decoration: none;
-  color: white;
+  color: #8B4513;
   font-weight: bold;
 }
 
@@ -42,7 +42,7 @@
 
 .auth-links a {
   text-decoration: none;
-  color: white;
+  color: #8B4513;
   font-weight: bold;
   padding: 8px 15px;
   border-radius: 5px;
@@ -59,7 +59,7 @@
 .logo {
   font-size: 20px;
   font-weight: bold;
-  color: white;
+  color: #8B4513;
 }
 
 @media (max-width: 768px) {
