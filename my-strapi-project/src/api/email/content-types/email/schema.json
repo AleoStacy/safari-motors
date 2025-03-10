@@ -1,20 +1,23 @@
 {
   "kind": "collectionType",
-  "collectionName": "faqs",
+  "collectionName": "emails",
   "info": {
-    "singularName": "faq",
-    "pluralName": "faqs",
-    "displayName": "faq",
+    "singularName": "email",
+    "pluralName": "emails",
+    "displayName": "email",
     "description": ""
   },
   "options": {
     "draftAndPublish": false
   },
   "attributes": {
-    "question": {
+    "to": {
       "type": "string"
     },
-    "answer": {
+    "subject": {
+      "type": "string"
+    },
+    "text": {
       "type": "text"
     }
   }
