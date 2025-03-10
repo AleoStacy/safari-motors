@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Login.css"; // Ensure this file is created
-
+import "./Login.css"; // Ensure this file is create
+import Footer from "../components/Footer"; // Correct path to access Footer.js
 const Login = () => {
   return (
+    <>
     <div className="login-page">
       <div className="login-box">
         <h2>Login</h2>
@@ -19,6 +20,8 @@ const Login = () => {
         </p>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 

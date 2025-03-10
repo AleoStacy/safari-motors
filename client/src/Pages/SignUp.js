@@ -1,9 +1,10 @@
 // import React from "react";
 import { Link } from "react-router-dom";
 import "./SignUp.css"; // Ensure this file is created
-
+import Footer from "../components/Footer"; // Correct path to access Footer.js
 const Signup = () => {
   return (
+    <>
     <div className="signup-page">
       <div className="signup-box">
         <h2>Sign Up</h2>
@@ -23,6 +24,8 @@ const Signup = () => {
         </p>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 

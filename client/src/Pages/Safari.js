@@ -6,7 +6,7 @@ const safariDestinations = [
   {
     id: 1,
     name: "Maasai Mara",
-    image: "../images/maasai-mara.jpg", // ✅ Correct Path
+    image: "../images/maasai-mara.jpg",
     description: "Experience the great migration and stunning wildlife.",
   },
   {
