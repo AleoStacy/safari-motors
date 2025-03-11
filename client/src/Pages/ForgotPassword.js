@@ -15,7 +15,7 @@ function ForgotPassword() {
       });
   
       if (response.ok) {
-        setMessage("Email successfully sent. Check your inbox to reset your password.");
+        setMessage("Email successfully sent. Check your inbox and or spam to reset your password.");
       } else {
         const errorData = await response.json();
         setError(errorData.error.message || "Failed to send email. Please try again.");
