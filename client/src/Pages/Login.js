@@ -73,6 +73,9 @@ const Login = () => {
         <p className="signup-link">
           Don't have an account? <Link to="/signup">Sign Up</Link>
         </p>
+        <p className="signup-link">
+          <Link to="/forgot-password">Forgot password?</Link>
+        </p>
       </div>
     </div>
     <Footer/>
