@@ -1,4 +1,5 @@
 import App from "./App"
+import Navbar from "./components/Navbar";
 import LandingPage from "./Pages/LandingPage";
 import Booking from "./Pages/Booking";
 import Contacts from "./Pages/Contacts";
