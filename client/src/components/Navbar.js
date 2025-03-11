@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ setUser, user }) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -20,6 +20,16 @@ const Navbar = () => {
       section.scrollIntoView({ behavior: "smooth" });
     }
   };
+  const navigate= useNavigate()
+  function handleLogoutClick() {
+    localStorage.removeItem("jwt");
+  
+    // Clear the user state in your application
+    setUser(null);
+    
+    // Redirect to home page or login page if needed
+    navigate("/");
+  }
 
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
@@ -32,8 +42,11 @@ const Navbar = () => {
         <li><Link to="/contacts">Contact</Link></li>
       </ul>
       <div className="auth-links">
-        <Link to="/signup" className="signup">Sign Up</Link>
-        <Link to="/login" className="login">Login</Link>
+        {user ?
+         (<Link className="login" onClick={handleLogoutClick}>Log Out</Link>):
+         (<div> <Link to="/signup" className="signup">Sign Up</Link>
+        <Link to="/login" className="login">Login</Link></div>)}
+       
       </div>
     </nav>
   );

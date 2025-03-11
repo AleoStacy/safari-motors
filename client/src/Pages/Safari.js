@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import "./Safari.css"; // Ensure you create this file for styling
 import Footer from "../components/Footer"; // Correct path to access Footer.js
@@ -54,6 +54,19 @@ const safariDestinations = [
 ];
 
 const Safari = () => {
+
+  const[safaris,setSafaris]=useState([])
+  
+  function getSafaris(){
+    fetch(`http://localhost:1337/api/safari-destinations?populate=image`)
+    .then(response=>response.json())
+    .then(data=>setSafaris(data.data))
+    .then(data=>console.log(data))
+
+  }
+
+  useEffect(()=>{getSafaris()},[])
+
   return (
     <>
     <div className="safari-container">
@@ -74,9 +87,9 @@ const Safari = () => {
       <section className="safari-destinations">
         <h2> Our Safaris</h2>
         <div className="destinations-grid">
-          {safariDestinations.map((destination) => (
+          {safaris.map((destination) => (
             <div key={destination.id} className="destination-card">
-              <img src={destination.image} alt={destination.name} />
+              <img src={destination.image.url} alt={destination.name} />
               <h3>{destination.name}</h3>
               <p>{destination.description}</p>
               <Link to={`/safari/${destination.id}`} className="learn-more-btn">Learn More</Link>

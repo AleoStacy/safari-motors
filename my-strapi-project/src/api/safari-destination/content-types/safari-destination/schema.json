@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "safari_destinations",
+  "info": {
+    "singularName": "safari-destination",
+    "pluralName": "safari-destinations",
+    "displayName": "safari-destination",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

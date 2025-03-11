@@ -12,6 +12,48 @@
             "question": "What should I pack for a safari?",
             "answer": "Light clothing, a hat, sunscreen, binoculars, and a camera are highly recommended."
           }
-    ]
+    ],
+    "safari-destination": [
+    {
+      "name": "Maasai Mara",
+      "description": "Experience the great migration and stunning wildlife.",
+      "image": "https://res.cloudinary.com/dvgbwrvl1/image/upload/v1741684025/maasai_mara_694016fb0c.jpg"
+    },
+    {
+      "name": "Amboseli National Park",
+      "description": "See large herds of elephants with Mount Kilimanjaro in the background.",
+      "image": "https://res.cloudinary.com/dvgbwrvl1/image/upload/v1741684025/maasai_mara_694016fb0c.jpg"
+    },
+    {
+      "name": "Tsavo National Park",
+      "description": "Discover the untamed wilderness of Kenya’s largest park.",
+      "image": "https://res.cloudinary.com/dvgbwrvl1/image/upload/v1741684025/maasai_mara_694016fb0c.jpg"
+    },
+    {
+      "name": "Samburu National Reserve",
+      "description": "Home to rare wildlife species and breathtaking landscapes.",
+      "image": "https://res.cloudinary.com/dvgbwrvl1/image/upload/v1741684025/maasai_mara_694016fb0c.jpg"
+    },
+    {
+      "name": "Lake Nakuru National Park",
+      "description": "Mountainous landscapes and unique wildlife sightings.",
+      "image": "https://res.cloudinary.com/dvgbwrvl1/image/upload/v1741684025/maasai_mara_694016fb0c.jpg"
+    },
+    {
+      "name": "Aberdare National Park",
+      "description": "Mountainous landscapes and unique wildlife sightings.",
+      "image": "https://res.cloudinary.com/dvgbwrvl1/image/upload/v1741684025/maasai_mara_694016fb0c.jpg"
+    },
+    {
+      "name": "Nairobi National Park",
+      "description": "Wildlife adventure just outside Kenya’s capital city.",
+      "image": "https://res.cloudinary.com/dvgbwrvl1/image/upload/v1741684025/maasai_mara_694016fb0c.jpg"
+    },
+    {
+      "name": "Mount Kenya National Park",
+      "description": "Explore Africa’s second-highest mountain and its diverse ecosystems.",
+      "image": "https://res.cloudinary.com/dvgbwrvl1/image/upload/v1741684997/mt_kenya_c11a1c6598.jpg"
+    }
+  ]
   }
   
