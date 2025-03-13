@@ -43,7 +43,7 @@ const Safari = () => {
               <img src={destination.image.url} alt={destination.name} />
               <h3>{destination.name}</h3>
               <p>{destination.description}</p>
-              <Link to={`/safari/${destination.id}`} className="learn-more-btn">Learn More</Link>
+              <Link to={`/safari/${destination.documentId}`} className="learn-more-btn">Learn More</Link>
             </div>
           ))}
 
