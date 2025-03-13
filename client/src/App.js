@@ -57,6 +57,7 @@ function App() {
         <Navbar setUser={setUser} user={user} />
       </header>
       <Outlet context={[setUser, user, check_session]} />
+      
     </>
   );
 }

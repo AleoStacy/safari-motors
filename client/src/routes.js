@@ -20,7 +20,7 @@ const routes = [
     children: [
       { path: "/", element: <LandingPage /> },
       { path: "/home", element: <Home /> },
-      { path: "/booking", element: <Booking /> },
+      { path: "/booking/:id", element: <Booking /> },
       { path: "/contacts", element: <Contacts /> },
       { path: "/gallery", element: <Gallery /> },
       { path: "/reviews", element: <Reviews /> },

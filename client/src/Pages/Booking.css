@@ -1,0 +1,72 @@
+/* Unique Booking Form Styles */
+.booking-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f7f7f7;
+  font-family: "Quicksand", sans-serif;
+}
+
+.booking-form {
+  background-color: white;
+  width: 60%;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.booking-form h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.booking-form p {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.booking-form label {
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.booking-form select[multiple] {
+  height: 100px;
+}
+
+.booking-form textarea {
+  height: 100px;
+}
+
+.booking-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+.booking-form button:hover {
+  background-color: #0056b3;
+}
