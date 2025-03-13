@@ -38,13 +38,14 @@ const Safari = () => {
       <section className="safari-destinations">
         <h2> Our Safaris</h2>
         <div className="destinations-grid">
-        {safaris && safaris.map((destination) => (
-  <div key={destination.id}>
-    <h2>{destination.name}</h2>
-    <img src={destination.image.url} alt={destination.name} />
-    <p>{destination.description}</p>
-  </div>
-))}
+        {safaris.map((destination) => (
+            <div key={destination.id} className="destination-card">
+              <img src={destination.image.url} alt={destination.name} />
+              <h3>{destination.name}</h3>
+              <p>{destination.description}</p>
+              <Link to={`/safari/${destination.id}`} className="learn-more-btn">Learn More</Link>
+            </div>
+          ))}
 
         </div>
       </section>
