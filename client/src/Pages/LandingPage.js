@@ -14,6 +14,7 @@ import Lion from "../images/Lion.jpg"
 import Ostrich from "../images/Ostrich.jpg"
 import wildebeast from "../images/wildebeast.jpg"
 import cheetah from "../images/cheetah.jpg"
+import ReviewSection from '../components/ReviewSection';
 
 const LandingPage = () => {
   const handleCardClick = (url) => {
@@ -116,6 +117,7 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
+      < ReviewSection/>
 
       {/* FAQ Section */}
       <section className="faq-section" id="faq">
@@ -147,7 +149,6 @@ const LandingPage = () => {
     <img src={wildebeast} alt="Safari Moment 6" className="gallery-image" />
   </div>
 </section>
-
       <Footer /> 
     </>
   );

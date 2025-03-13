@@ -1,4 +1,4 @@
-import {useState,useEffect} from 'react'
+import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import LandingPage from "./Pages/LandingPage";
@@ -6,7 +6,7 @@ import Booking from "./Pages/Booking";
 import Contacts from "./Pages/Contacts";
 import Gallery from "./Pages/Gallery";
 import Home from "./Pages/Home";
-import Reviews from "./Pages/Reviews";
+import Reviews from "./components/ReviewSection";
 function App() {
   const [user, setUser] = useState(null);
 
@@ -18,7 +18,7 @@ function App() {
       const response = await fetch("http://localhost:1337/api/users/me", {
         method: "GET",
         headers: {
-          "Authorization": `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
       });
@@ -27,7 +27,7 @@ function App() {
         const userData = await response.json();
         //console.log("Session Valid:", userData);
         setUser(userData);
-        console.log(userData)
+        console.log(userData);
         return userData;
       } else {
         console.error("Session check failed:", response.status);
@@ -52,12 +52,12 @@ function App() {
     }
   }, []);
   return (
-   <>
-   <header>
-    <Navbar setUser={setUser} user={user}/>
-   </header>
-   <Outlet context={[setUser, user, check_session]}/>
-   </>
+    <>
+      <header>
+        <Navbar setUser={setUser} user={user} />
+      </header>
+      <Outlet context={[setUser, user, check_session]} />
+    </>
   );
 }
 export default App;
