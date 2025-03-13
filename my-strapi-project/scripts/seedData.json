@@ -54,6 +54,12 @@
       "description": "Explore Africa’s second-highest mountain and its diverse ecosystems.",
       "image": "https://res.cloudinary.com/dvgbwrvl1/image/upload/v1741684997/mt_kenya_c11a1c6598.jpg"
     }
+  ],
+  "review":[
+    { "name": "John Doe", "rating": 5, "comment": "Great product!" },
+    { "name": "Jane Smith", "rating": 4, "comment": "Good quality, but shipping was slow." },
+    { "name": "Alex", "rating": 5, "comment": "Absolutely love it!" },
+    { "name": "Emma", "rating": 3, "comment": "It's okay, could be better." }
   ]
   }
   

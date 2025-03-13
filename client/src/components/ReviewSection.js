@@ -10,6 +10,15 @@ const ReviewSection = () => {
     { name: "Emma", rating: 3, comment: "It's okay, could be better." }
   ]);
 
+  function getReviews(){
+    fetch("http://localhost:1337/api/reviews")
+     .then((response) => response.json())
+     .then((data) => setReviews(data.data))
+     .then((data)=>console.log(data))
+  }
+
+  useEffect(()=>{getReviews()},[])
+
   const [newReview, setNewReview] = useState("");
   const [rating, setRating] = useState(5);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -53,6 +62,8 @@ const ReviewSection = () => {
     const interval = setInterval(handleNext, 3000);
     return () => clearInterval(interval);
   }, [currentIndex]);
+
+  if (reviews.length == 0){return <h1>Loading</h1>}
 
   return (
     <div className="review-container">
