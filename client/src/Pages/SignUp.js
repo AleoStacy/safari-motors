@@ -43,6 +43,8 @@ const Signup = () => {
       });
   
       const data = await response.json();
+      const token = await data.jwt
+      console.log(await token)
       
       if (data.error) {
         console.error(data.error);
@@ -51,8 +53,10 @@ const Signup = () => {
       }
   
      
-      if (data.jwt) {
-        localStorage.setItem("jwt", data.jwt);
+      if (token) {
+        localStorage.setItem("jwt", token);
+        const userdata = await check_session(token);  
+        await userdata
         navigate("/");
       }
     } catch (err) {
