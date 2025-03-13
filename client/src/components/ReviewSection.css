@@ -2,12 +2,14 @@
 
 .container {
   max-width: 800px;
-  margin: auto;
-  padding: 24px;
+  margin: 0 auto; /* Center horizontally */
+  padding: 20px; /* Balanced padding */
   background-color: white;
   border-radius: 20px;
   /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); */
-  justify-content: center;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items inside */
 }
 
 .title {
