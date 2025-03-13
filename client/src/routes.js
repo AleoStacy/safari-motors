@@ -11,6 +11,7 @@ import Login from "./Pages/Login";
 import SignUp from "./Pages/SignUp";
 import ForgotPassword from "./Pages/ForgotPassword";
 import ResetPassword from "./Pages/ResetPassword";
+import Readmore from "./Pages/Readmore";
 
 const routes = [
     {
@@ -29,6 +30,8 @@ const routes = [
         {path: "/contacts", element: <Contacts/>},
         {path: "/forgot-password", element: <ForgotPassword/>},
         {path: "/reset-password", element: <ResetPassword/>},
+        {path: "/readmore", element: <Readmore/>},
+
         
 
       ],
