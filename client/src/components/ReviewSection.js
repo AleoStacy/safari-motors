@@ -14,7 +14,7 @@ const ReviewSection = () => {
     fetch("http://localhost:1337/api/reviews")
      .then((response) => response.json())
      .then((data) => setReviews(data.data))
-     .then((data)=>console.log(data))
+     .then((data)=>console.log("data"))
   }
 
   useEffect(()=>{getReviews()},[])
