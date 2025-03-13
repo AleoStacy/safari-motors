@@ -1,11 +1,12 @@
 /* ReviewSection.css */
 
 .review-container {
-  max-width: 800px;
+  /* max-width: 800px; */
   margin: 0 auto; /* Center horizontally */
-  padding: 20px; /* Balanced padding */
+  padding-top: 20px;/* Balanced padding */
+  padding-bottom: 50px;
   background-color: white;
-  border-radius: 20px;
+  /* border-radius: 20px; */
   /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); */
   display: flex;
   flex-direction: column; /* Stack items vertically */
@@ -13,7 +14,8 @@
   justify-content: center;
   font-family: "Quicksand", sans-serif;
   /* align-items: center; */
-
+  background-color: #F9FBE7;
+  
 }
 
 .title {

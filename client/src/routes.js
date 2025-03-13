@@ -12,6 +12,7 @@ import SignUp from "./Pages/SignUp";
 import ForgotPassword from "./Pages/ForgotPassword";
 import ResetPassword from "./Pages/ResetPassword";
 import ReviewSection from "./components/ReviewSection";
+import Partnerships from "./components/Partnerships";
 
 const routes = [
   {
@@ -31,6 +32,8 @@ const routes = [
       { path: "/forgot-password", element: <ForgotPassword /> },
       { path: "/reset-password", element: <ResetPassword /> },
       { path: "/reviewsection", element: <ReviewSection /> },
+      { path: "/partnerships", element: <Partnerships /> },
+
     ],
   },
 ];

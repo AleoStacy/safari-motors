@@ -1,119 +1,51 @@
-.safari-container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 64px 20px 100px;  text-align: center;
+/* Background Styling */
+.signup-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 800px;
+  background: url("../images/forest.jpg") no-repeat center center/cover;
   font-family: "Quicksand", sans-serif;
 
 }
 
-.safari-intro::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(135, 135, 135, 0.7); /* Adjust darkness (0.5 = 50% dark) */
-}
-.safari-intro {
-  position: relative;
-  background-image: url('../images/Giraffe-skin.jpg'); 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: rgb(0, 0, 0); /* Ensures text is visible */
-  padding: 80px 20px; /* Adjust padding to create space */
-  width: 100%;
-}
-
-.safari-intro h1 {
-  font-size: 2.9rem;
-  color: #ffffff;
-  position: relative; /* Ensures text is above the dark overlay */
-  z-index: 2;
-}
-
-.safari-intro p {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #ffffff;
-  max-width: 800px;
-  margin: auto;
-  position: relative; /* Ensures text is above the dark overlay */
-  z-index: 2;
-  text-align: left;
-  margin-bottom: 8px;  /* Reduce this value to decrease gaps */
-}
-
-.safari-destinations h2 {
-  font-size: 2rem;
-  margin-bottom: 50px;
-  margin-top: 50px;
-}
-
-.destinations-grid {
-  /* display: grid; */
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-}
-
-.destination-card {
-  background: white;
-  padding: 15px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  text-align: center;
-}
-
-.destination-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  /* border-radius: 8px; */
-}
-
-.destination-card h3 {
-  margin: 10px 0;
-}
-
-.learn-more-btn {
-  display: inline-block;
-  padding: 8px 15px;
-  background: #8B4513;
-  color: white;
-  text-decoration: none;
-}
-
-.learn-more-btn:hover {
-  background: #8B4513;
-}
-.destinations-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* Centers the cards */
-  gap: 20px; /* Adds spacing between cards */
-  padding: 20px;
-}
-
-.safari-card {
-  width: 300px; /* Controls the card width */
-  text-align: center;
-  background: #fff;
+/* Blurred Form Box */
+.signup-box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s ease-in-out;
+  backdrop-filter: blur(10px);
+  width: 350px;
+  /* text-align: center; */
 }
 
-.safari-card:hover {
-  transform: scale(1.05); /* Adds a subtle hover effect */
-}
-
-.safari-card img {
+/* Input Fields */
+.signup-box input {
   width: 100%;
-  height: 200px;
-  object-fit: cover; /* Ensures images fit properly */
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  outline: none;
 }
 
-.safari-card .card-content {
-  padding: 15px;
+/* Button Styling */
+.signup-box button {
+  width: 100%;
+  padding: 10px;
+  background-color: #8B4513;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.signup-box button:hover {
+  background-color: #8B4513;
+}
+
+/* Link to Login */
+.login-link {
+  margin-top: 10px;
+  display: block;
 }
