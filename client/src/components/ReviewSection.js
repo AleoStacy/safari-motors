@@ -3,47 +3,87 @@ import { Star } from "lucide-react";
 import "./ReviewSection.css";
 
 const ReviewSection = () => {
-  const [reviews, setReviews] = useState([
-    { name: "John Doe", rating: 5, comment: "Great product!" },
-    { name: "Jane Smith", rating: 4, comment: "Good quality, but shipping was slow." },
-    { name: "Alex", rating: 5, comment: "Absolutely love it!" },
-    { name: "Emma", rating: 3, comment: "It's okay, could be better." }
-  ]);
-
-  function getReviews(){
-    fetch("http://localhost:1337/api/reviews")
-     .then((response) => response.json())
-     .then((data) => setReviews(data.data))
-     .then((data)=>console.log("data"))
-  }
-
-  useEffect(()=>{getReviews()},[])
-
+  const [reviews, setReviews] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [newReview, setNewReview] = useState("");
   const [rating, setRating] = useState(5);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [name, setName] = useState(localStorage.getItem("username") || "");
+  const [name, setName] = useState("");
+
+  function getReviews(){
+    setLoading(true);
+    fetch("http://localhost:1337/api/reviews")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setReviews(data.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+        setError(error.message);
+        setLoading(false);
+      });
+
+    
+  }
+
+  useEffect(() => {getReviews()  }, []);
 
   const handleNext = () => {
+    if (reviews.length === 0) return;
     setCurrentIndex((prevIndex) => (prevIndex + 1) % reviews.length);
   };
 
   const handlePrev = () => {
+    if (reviews.length === 0) return;
     setCurrentIndex((prevIndex) => (prevIndex - 1 + reviews.length) % reviews.length);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (newReview.trim() === "") return;
+    
+   
 
-    const newEntry = {
-      name: name || "Anonymous",
-      rating: rating,
-      comment: newReview
+   
+    const reviewData = {
+      data: {
+        name: name || "Anonymous",
+        rating: rating,
+        comment: newReview
+      }
     };
 
-    setReviews([newEntry, ...reviews]);
-    setNewReview("");
-    setRating(5);
+    fetch("http://localhost:1337/api/reviews", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(reviewData)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(() => {
+      getReviews();
+      setNewReview("");
+      setRating(5);
+      
+    })
+    .catch(error => {
+      console.error("Submission error:", error);
+      setError(error.message);
+      
+    });
   };
 
   const handleNameChange = (e) => {
@@ -59,11 +99,15 @@ const ReviewSection = () => {
   };
 
   useEffect(() => {
+    if (reviews.length === 0) return;
+    
     const interval = setInterval(handleNext, 3000);
     return () => clearInterval(interval);
-  }, [currentIndex]);
+  }, [currentIndex, reviews.length]);
 
-  if (reviews.length == 0){return <h1>Loading</h1>}
+  if (loading) return <h1>Loading...</h1>;
+  if (error) return <h1>Error: {error}</h1>;
+  if (reviews.length === 0) return <h1>No reviews available</h1>;
 
   return (
     <div className="review-container">
