@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import giraffe from "../images/giraffe.jpg";
 import Footer from "../components/Footer"; // Correct path to access Footer.js
-function Readmore() {
+import Pixi from "../images/pixi.jpg";
+
+function TripDetails() {
   const { id } = useParams();
   const [{ data: event, error, status }, setEvent] = useState({
     data: null,
@@ -53,7 +55,6 @@ function Readmore() {
           <h2>{event.description}</h2>
         </div>
       </div>
-
       <form style={{ marginTop: "20px" }} onSubmit={handleSubmit}>
         <h3>PERSONAL INFORMATION</h3>
         <p>Ready for an epic adventure? Fill out the form below to kickstart your unforgettable journey with Us!</p>
@@ -143,17 +144,16 @@ function Readmore() {
       {showPopup && (
         <div className="popup">Perfect! We will get back to you as soon as we complete the booking.</div>
       )}
-< Footer/>
+      < Footer/>
+
       <style jsx>{`
         form {
           width: 100%;
           max-width: 800px;
           margin: auto;
           padding: 30px;
-          // background-color: #f9f9f9;
-          // border-radius: 15px;
           font-family: "Quicksand", sans-serif;
-          outline:none;
+          outline: none;
         }
 
         .image-container {
@@ -181,9 +181,7 @@ function Readmore() {
           margin-bottom: 20px;
           padding: 12px;
           border: 1px solid #ddd;
-          // border-radius: 8px;
-          outline:none;
-
+          outline: none;
         }
 
         button {
@@ -191,7 +189,6 @@ function Readmore() {
           background-color: #8B4513;
           color: white;
           border: none;
-          // border-radius: 8px;
           cursor: pointer;
         }
 
@@ -227,4 +224,4 @@ function Readmore() {
   );
 }
 
-export default Readmore;
+export default TripDetails;
