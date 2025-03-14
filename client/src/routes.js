@@ -13,6 +13,7 @@ import ForgotPassword from "./Pages/ForgotPassword";
 import ResetPassword from "./Pages/ResetPassword";
 import ReviewSection from "./components/ReviewSection";
 import Readmore from "./Pages/Readmore";
+import Partnerships from "./components/Partnerships";
 
 const routes = [
   {
@@ -21,7 +22,7 @@ const routes = [
     children: [
       { path: "/", element: <LandingPage /> },
       { path: "/home", element: <Home /> },
-      { path: "/booking", element: <Booking /> },
+      { path: "/booking/:id", element: <Booking /> },
       { path: "/contacts", element: <Contacts /> },
       { path: "/gallery", element: <Gallery /> },
       { path: "/reviews", element: <Reviews /> },
@@ -32,6 +33,8 @@ const routes = [
       { path: "/forgot-password", element: <ForgotPassword /> },
       { path: "/reset-password", element: <ResetPassword /> },
       { path: "/reviewsection", element: <ReviewSection /> },
+      { path: "/partnerships", element: <Partnerships /> },
+
       { path: "/safari/:id", element: <Readmore /> },
       
     ],

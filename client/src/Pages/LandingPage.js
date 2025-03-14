@@ -15,6 +15,8 @@ import Ostrich from "../images/Ostrich.jpg"
 import wildebeast from "../images/wildebeast.jpg"
 import cheetah from "../images/cheetah.jpg"
 import ReviewSection from '../components/ReviewSection';
+import Partnerships from '../components/Partnerships';
+
 
 const LandingPage = () => {
   const handleCardClick = (url) => {
@@ -118,7 +120,7 @@ const LandingPage = () => {
         </div>
       </section>
       < ReviewSection/>
-
+      <Partnerships/>
       {/* FAQ Section */}
       <section className="faq-section" id="faq">
         <h2>FAQs</h2>

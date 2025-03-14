@@ -2,7 +2,7 @@ import React,{useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import "./Safari.css"; // Ensure you create this file for styling
 import Footer from "../components/Footer"; // Correct path to access Footer.js
-
+import booking from "../Pages/Booking"; // Correct path to access booking.json
 
 const Safari = () => {
 

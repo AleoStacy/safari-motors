@@ -13,7 +13,7 @@
 .login-box {
   background: rgba(255, 255, 255, 0.1);
   padding: 2rem;
-  /* border-radius: 10px; */
+  border-radius: 10px;
   backdrop-filter: blur(10px);
   width: 350px;
   /* text-align: center; */
@@ -21,7 +21,7 @@
 
 /* Input Fields */
 .login-box input {
-  width: 100%;
+  width: 330px;
   padding: 10px;
   margin: 10px 0;
   border: none;
@@ -31,7 +31,7 @@
 
 /* Button Styling */
 .login-box button {
-  width: 100%;
+  width: 350px;
   padding: 10px;
   background-color: #8B4513;
   color: white;
