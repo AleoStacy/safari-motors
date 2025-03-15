@@ -35,14 +35,18 @@ const LandingPage = () => {
   // FAQ Section State
   const [openIndex, setOpenIndex] = useState(null);
   const [faqs,setFaqs] = useState([])
+  const [loading,setLoading] = useState(true)
 
   function findFaqs(){
     try{
     fetch('http://localhost:1337/api/faqs')
-     .then(response => response.json())
-     .then(data => setFaqs(data.data))
-     .then(console.log(faqs))
-    
+    .then((response) => {
+      if (!response.ok) {
+      }
+      return response.json();
+    })
+     .then(data => setFaqs(data.data))    
+     .then(()=>setLoading(false))
     }
 
     catch(error){
@@ -183,8 +187,9 @@ const LandingPage = () => {
       <Partnerships/>
       {/* FAQ Section */}
       <section className="faq-section" id="faq">
-        <h2>FAQs</h2>
+      {!loading && (<div><h2>FAQs</h2>
         <p>Find answers to common questions about safari planning, preparation, and what to expect.</p>
+
         <div className="faq-container">
           {faqs.map((faq, index) => (
             <div key={index} className="faq-item" onClick={() => toggleFAQ(index)}>
@@ -192,7 +197,8 @@ const LandingPage = () => {
               {openIndex === index && <div className="faq-answer">{faq.answer}</div>}
             </div>
           ))}
-        </div>
+        </div></div>)} 
+        
         <p>Still have questions?</p>
         < Link to ="/contacts">
         <button className="faq-button">Contact Us</button> 

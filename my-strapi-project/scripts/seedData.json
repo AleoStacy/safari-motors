@@ -56,10 +56,12 @@
     }
   ],
   "review":[
-    { "name": "John Doe", "rating": 5, "comment": "Great product!" },
-    { "name": "Jane Smith", "rating": 4, "comment": "Good quality, but shipping was slow." },
-    { "name": "Alex", "rating": 5, "comment": "Absolutely love it!" },
-    { "name": "Emma", "rating": 3, "comment": "It's okay, could be better." }
+    { "name": "John Kiarie", "rating": 5, "comment": "Website looking Amazing" },
+    { "name": "Jane Wanjiru", "rating": 4, "comment": "Good quality, but I wish you would do some improvements" },
+    { "name": "Alex Mumbi", "rating": 5, "comment": "Absolutely love it!" },
+    { "name": "Emma Mwita", "rating": 3, "comment": "The trips were okay, could be better." },
+    { "name": "Chris Kibet", "rating": 4, "comment": "Nice UI/UX design." },
+    { "name": "Fiona Wanjiku", "rating": 5, "comment": "Amazing customer service." }
   ]
   }
   

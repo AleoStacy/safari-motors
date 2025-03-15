@@ -3,27 +3,41 @@ import { Star } from "lucide-react";
 import "./ReviewSection.css";
 
 const ReviewSection = () => {
-<<<<<<< HEAD
-  const [reviews, setReviews] = useState([
-=======
-  const [reviews,setReviews] = useState([
->>>>>>> harry-branch
-    { name: "John Kiarie", rating: 5, comment: "Website looking Amazing" },
-    { name: "Jane Wanjiru", rating: 4, comment: "Good quality, but I wish you would do some improvements" },
-    { name: "Alex Mumbi", rating: 5, comment: "Absolutely love it!" },
-    { name: "Emma Mwita", rating: 3, comment: "The trips were okay, could be better." },
-    { name: "Chris Kibet", rating: 4, comment: "Nice UI/UX design." },
-    { name: "Fiona Wanjiku", rating: 5, comment: "Amazing customer service." }
-  ]);
+  const [reviews,setReviews] = useState([]);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
   const [popupContent, setPopupContent] = useState(null);
   const [showReviewForm, setShowReviewForm] = useState(false);
-
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [newName, setNewName] = useState("");
   const [newRating, setNewRating] = useState("");
   const [newComment, setNewComment] = useState("");
+
+  function getReviews(){
+    setLoading(true);
+    fetch("http://localhost:1337/api/reviews")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setReviews(data.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+        setError(error.message);
+        setLoading(false);
+      });
+
+    
+  }
+
+  useEffect(() => {getReviews()  }, []);
 
   // Auto-slide every 4 seconds
   useEffect(() => {
@@ -48,17 +62,42 @@ const ReviewSection = () => {
   };
 
   const handleAddReview = () => {
-    const newReview = {
+    const newReview = {data:{
       name: newName,
       rating: parseInt(newRating),
       comment: newComment
-    };
+    }};
+   
+    
+    
 
-    setReviews([...reviews, newReview]);
-    setShowReviewForm(false);
-    setNewName("");
-    setNewRating("");
-    setNewComment("");
+    fetch("http://localhost:1337/api/reviews", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newReview)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(() => {
+      setShowReviewForm(false);
+      getReviews()
+      setNewName("");
+      setNewRating("");
+      setNewComment("");
+      
+    })
+    .catch(error => {
+      console.error("Submission error:", error);
+      setError(error.message);
+      
+    });
+
   };
 
   const renderStars = (count) => {
