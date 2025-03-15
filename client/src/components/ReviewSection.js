@@ -3,151 +3,82 @@ import { Star } from "lucide-react";
 import "./ReviewSection.css";
 
 const ReviewSection = () => {
-  const [reviews, setReviews] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [newReview, setNewReview] = useState("");
-  const [rating, setRating] = useState(5);
+  const [reviews] = useState([
+    { name: "John Kiarie", rating: 5, comment: "Website looking Amazing" },
+    { name: "Jane Wanjiru", rating: 4, comment: "Good quality, but I wish you would do some improvements" },
+    { name: "Alex Mumbi", rating: 5, comment: "Absolutely love it!" },
+    { name: "Emma Mwita", rating: 3, comment: "The trips were okay, could be better." },
+    { name: "Chris Kibet", rating: 4, comment: "Nice UI/UX design." },
+    { name: "Fiona Wanjiku", rating: 5, comment: "Amazing customer service." }
+  ]);
+
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [name, setName] = useState("");
-
-  function getReviews(){
-    setLoading(true);
-    fetch("http://localhost:1337/api/reviews")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setReviews(data.data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Fetch error:", error);
-        setError(error.message);
-        setLoading(false);
-      });
-
-    
-  }
-
-  useEffect(() => {getReviews()  }, []);
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupContent, setPopupContent] = useState(null);
 
   const handleNext = () => {
-    if (reviews.length === 0) return;
     setCurrentIndex((prevIndex) => (prevIndex + 1) % reviews.length);
   };
 
-  const handlePrev = () => {
-    if (reviews.length === 0) return;
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + reviews.length) % reviews.length);
+  const handleReviewClick = (review) => {
+    setPopupContent(review);
+    setShowPopup(true);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (newReview.trim() === "") return;
-    
-   
-
-   
-    const reviewData = {
-      data: {
-        name: name || "Anonymous",
-        rating: rating,
-        comment: newReview
-      }
-    };
-
-    fetch("http://localhost:1337/api/reviews", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(reviewData)
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then(() => {
-      getReviews();
-      setNewReview("");
-      setRating(5);
-      
-    })
-    .catch(error => {
-      console.error("Submission error:", error);
-      setError(error.message);
-      
-    });
-  };
-
-  const handleNameChange = (e) => {
-    const newName = e.target.value;
-    setName(newName);
-    localStorage.setItem("username", newName);
-  };
-
-  const renderStars = (count) => {
-    return Array.from({ length: 5 }, (_, index) => (
-      <Star key={index} className={`star ${index < count ? 'star-active' : 'star-inactive'}`} />
-    ));
+  const closePopup = () => {
+    setShowPopup(false);
+    setPopupContent(null);
   };
 
   useEffect(() => {
-    if (reviews.length === 0) return;
-    
     const interval = setInterval(handleNext, 3000);
     return () => clearInterval(interval);
-  }, [currentIndex, reviews.length]);
+  }, [currentIndex]);
 
-  if (loading) return <h1>Loading...</h1>;
-  if (error) return <h1>Error: {error}</h1>;
-  if (reviews.length === 0) return <h1>No reviews available</h1>;
+  const renderStars = (count) => {
+    return Array.from({ length: 5 }, (_, index) => (
+      <Star key={index} className={index < count ? 'star-active' : 'star-inactive'} />
+    ));
+  };
+
+  const getThreeReviews = () => {
+    const start = currentIndex;
+    const end = (start + 3) % reviews.length;
+
+    if (end > start) {
+      return reviews.slice(start, end);
+    } else {
+      return [...reviews.slice(start), ...reviews.slice(0, end)];
+    }
+  };
 
   return (
     <div className="review-container">
-      <h2 className="title">Customer Reviews</h2>
+      <h2 className="title">What our Customers say about us</h2>
       <div className="carousel">
-        <button onClick={handlePrev} className="nav-button">&#9664;</button>
-        <div className="review-item fade-in">
-          <p className="reviewer-name">{reviews[currentIndex].name}</p>
-          <div className="stars">{renderStars(reviews[currentIndex].rating)}</div>
-          <p className="comment">"{reviews[currentIndex].comment}"</p>
+        {getThreeReviews().map((review, index) => (
+          <div
+            key={index}
+            className="review-item"
+            onClick={() => handleReviewClick(review)}
+          >
+            <p className="reviewer-name">{review.name}</p>
+            <div className="stars">{renderStars(review.rating)}</div>
+            <p className="comment">"{review.comment}"</p>
+          </div>
+        ))}
+      </div>
+
+      {showPopup && (
+        <div className="popup-overlay" onClick={closePopup}>
+          <div className="popup-content" onClick={(e) => e.stopPropagation()}>
+            <h3>{popupContent.name}</h3>
+            <div className="stars">{renderStars(popupContent.rating)}</div>
+            <p>{popupContent.comment}</p>
+            <button onClick={closePopup} className="close-button">Close</button>
+          </div>
         </div>
-        <button onClick={handleNext} className="nav-button">&#9654;</button>
-      </div>
-      <div className="write-review-section">
-        <h3 className="subtitle">Write a Review</h3>
-        <input
-          type="text"
-          placeholder="Enter your name"
-          value={name}
-          onChange={handleNameChange}
-          className="name-input"
-        />
-        <textarea
-          className="textarea"
-          rows="4"
-          placeholder="Share your experience..."
-          value={newReview}
-          onChange={(e) => setNewReview(e.target.value)}
-        ></textarea>
-        <select
-          value={rating}
-          onChange={(e) => setRating(Number(e.target.value))}
-          className="rating-select"
-        >
-          {[5, 4, 3, 2, 1].map((star) => (
-            <option key={star} value={star}>{`${star} Stars`}</option>
-          ))}
-        </select>
-        <button onClick={handleSubmit} className="submit-button">Submit Review</button>
-      </div>
+      )}
     </div>
   );
 };
