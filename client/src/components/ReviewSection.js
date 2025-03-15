@@ -3,7 +3,7 @@ import { Star } from "lucide-react";
 import "./ReviewSection.css";
 
 const ReviewSection = () => {
-  const [reviews] = useState([
+  const [reviews,setReviews] = useState([
     { name: "John Kiarie", rating: 5, comment: "Website looking Amazing" },
     { name: "Jane Wanjiru", rating: 4, comment: "Good quality, but I wish you would do some improvements" },
     { name: "Alex Mumbi", rating: 5, comment: "Absolutely love it!" },
@@ -15,6 +15,32 @@ const ReviewSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
   const [popupContent, setPopupContent] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  function getReviews(){
+    setLoading(true);
+    fetch("http://localhost:1337/api/reviews")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setReviews(data.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+        setError(error.message);
+        setLoading(false);
+      });
+
+    
+  }
+
+  useEffect(() => {getReviews()  }, []);
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % reviews.length);
@@ -51,7 +77,9 @@ const ReviewSection = () => {
       return [...reviews.slice(start), ...reviews.slice(0, end)];
     }
   };
-
+  if (loading) return <h1>Loading...</h1>;
+  if (error) return <h1>Error: {error}</h1>;
+  if (reviews.length === 0) return <h1>No reviews available</h1>;
   return (
     <div className="review-container">
       <h2 className="title">What our Customers say about us</h2>

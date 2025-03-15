@@ -27,6 +27,12 @@
     },
     "description": {
       "type": "text"
+    },
+    "safari_bookings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::safari-booking.safari-booking",
+      "mappedBy": "safari_destination"
     }
   }
 }
