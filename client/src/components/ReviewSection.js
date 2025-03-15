@@ -3,7 +3,11 @@ import { Star } from "lucide-react";
 import "./ReviewSection.css";
 
 const ReviewSection = () => {
+<<<<<<< HEAD
   const [reviews, setReviews] = useState([
+=======
+  const [reviews,setReviews] = useState([
+>>>>>>> harry-branch
     { name: "John Kiarie", rating: 5, comment: "Website looking Amazing" },
     { name: "Jane Wanjiru", rating: 4, comment: "Good quality, but I wish you would do some improvements" },
     { name: "Alex Mumbi", rating: 5, comment: "Absolutely love it!" },
@@ -73,7 +77,9 @@ const ReviewSection = () => {
       return [...reviews.slice(start), ...reviews.slice(0, end)];
     }
   };
-
+  if (loading) return <h1>Loading...</h1>;
+  if (error) return <h1>Error: {error}</h1>;
+  if (reviews.length === 0) return <h1>No reviews available</h1>;
   return (
     <div className="review-container">
       <h2 className="title">What our Customers say about us</h2>

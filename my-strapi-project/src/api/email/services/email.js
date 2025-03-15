@@ -16,7 +16,7 @@ module.exports = {
     const { from, to, subject, text, html, ...rest } = options;
     
     const msg = {
-      from: from || 'ha.wakhule@gmail.com', 
+      from: from || 'safarimotorske@gmail.com', 
       to,
       subject,
       text,

@@ -20,15 +20,15 @@ const path = require("path");
       for (const entry of seedData[collectionName]) {
         let data = { ...entry, publishedAt: new Date() };
 
-        // Handle image field for safari-destination
+       
         if (collectionName === "safari-destination" && entry.image) {
           try {
-            // Get the image URL and filename
+            
             const imageUrl = entry.image;
             const fileName = path.basename(imageUrl);
             const fileNameWithoutExt = fileName.replace(/\.[^/.]+$/, "");
             
-            // Simulate uploading to Strapi media library
+            
             const uploadFile = {
               name: fileName,
               alternativeText: entry.name,
@@ -38,7 +38,7 @@ const path = require("path");
               hash: fileNameWithoutExt,
               ext: ".jpg",
               mime: "image/jpeg",
-              size: 250, // size in KB
+              size: 250, 
               sizeInBytes: 250000,
               url: imageUrl,
               provider: "cloudinary",
@@ -68,18 +68,18 @@ const path = require("path");
               updatedAt: new Date()
             };
 
-            // Create the file in the Strapi media library
+            
             const file = await app.entityService.create("plugin::upload.file", {
               data: uploadFile
             });
 
-            // Connect the file to the entry
+           
             data.image = file.id;
             
             console.log(`Created image: ${file.id} for entry: ${entry.name}`);
           } catch (error) {
             console.error(`Error creating image for ${entry.name}:`, error.message);
-            // Set image to null if there's an error
+            
             data.image = null;
           }
         }

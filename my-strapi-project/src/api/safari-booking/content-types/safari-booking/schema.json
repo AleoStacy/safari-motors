@@ -1,0 +1,63 @@
+{
+  "kind": "collectionType",
+  "collectionName": "safari_bookings",
+  "info": {
+    "singularName": "safari-booking",
+    "pluralName": "safari-bookings",
+    "displayName": "safari-booking",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone_number": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "booking_information": {
+      "type": "text"
+    },
+    "travel_date_from": {
+      "type": "date"
+    },
+    "number_of_nights": {
+      "type": "integer"
+    },
+    "budget_per": {
+      "type": "string"
+    },
+    "how_did_you_find_us": {
+      "type": "string"
+    },
+    "adults": {
+      "type": "integer"
+    },
+    "children": {
+      "type": "integer"
+    },
+    "additional_information": {
+      "type": "text"
+    },
+    "safari_destination": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::safari-destination.safari-destination",
+      "inversedBy": "safari_bookings"
+    }
+  }
+}

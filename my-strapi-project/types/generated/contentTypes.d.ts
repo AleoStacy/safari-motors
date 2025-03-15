@@ -546,6 +546,53 @@ export interface ApiReviewReview extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiSafariBookingSafariBooking
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'safari_bookings';
+  info: {
+    description: '';
+    displayName: 'safari-booking';
+    pluralName: 'safari-bookings';
+    singularName: 'safari-booking';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    additional_information: Schema.Attribute.Text;
+    adults: Schema.Attribute.Integer;
+    booking_information: Schema.Attribute.Text;
+    budget_per: Schema.Attribute.String;
+    children: Schema.Attribute.Integer;
+    country: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.String;
+    first_name: Schema.Attribute.String;
+    how_did_you_find_us: Schema.Attribute.String;
+    last_name: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::safari-booking.safari-booking'
+    > &
+      Schema.Attribute.Private;
+    number_of_nights: Schema.Attribute.Integer;
+    phone_number: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    safari_destination: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::safari-destination.safari-destination'
+    >;
+    title: Schema.Attribute.String;
+    travel_date_from: Schema.Attribute.Date;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSafariDestinationSafariDestination
   extends Struct.CollectionTypeSchema {
   collectionName: 'safari_destinations';
@@ -572,6 +619,10 @@ export interface ApiSafariDestinationSafariDestination
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    safari_bookings: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::safari-booking.safari-booking'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1093,6 +1144,7 @@ declare module '@strapi/strapi' {
       'api::faq.faq': ApiFaqFaq;
       'api::global.global': ApiGlobalGlobal;
       'api::review.review': ApiReviewReview;
+      'api::safari-booking.safari-booking': ApiSafariBookingSafariBooking;
       'api::safari-destination.safari-destination': ApiSafariDestinationSafariDestination;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
