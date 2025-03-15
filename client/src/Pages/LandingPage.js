@@ -1,5 +1,8 @@
 import React, { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "./LandingPage.css";
 import aboutImage from "../images/about-image.jpg";
 import mtKenya from "../images/mt-kenya.jpg";
@@ -16,12 +19,18 @@ import wildebeast from "../images/wildebeast.jpg"
 import cheetah from "../images/cheetah.jpg"
 import ReviewSection from '../components/ReviewSection';
 import Partnerships from '../components/Partnerships';
-
-
+import About from '../images/about-.jpg';
+import animalsZ from '../images/animalsZ.jpg';
+import leopard from '../images/leopard.jpg';
+import runingbeast from '../images/runingbeast.jpg';
+import p from '../images/p.jpg';
+import redcharlie from '../images/redcharlie.jpg';
+import eatingbeast from '../images/eatingbeast.jpg';
+import michael from '../images/michael.jpg'
 const LandingPage = () => {
-  const handleCardClick = (url) => {
-    window.location.href = url;
-  };
+  // const handleCardClick = (url) => {
+  //   window.location.href = url;
+  // };
 
   // FAQ Section State
   const [openIndex, setOpenIndex] = useState(null);
@@ -101,17 +110,17 @@ const LandingPage = () => {
           <h2>Discover Our Amazing Destinations</h2>
           {/* <p>Explore Kenya’s most breathtaking landscapes.</p> */}
           <div className="destinations-grid">
-            <div className="destination-card" onClick={() => handleCardClick("https://en.wikipedia.org/wiki/Maasai_Mara")}> 
+            <div className="destination-card" > 
               <img src={maasaiMara} alt="Maasai Mara" />
               <h3>Maasai Mara</h3>
               <p>Experience the Great Migration and stunning wildlife.</p>
             </div>
-            <div className="destination-card" onClick={() => handleCardClick("https://en.wikipedia.org/wiki/Diani_Beach")}> 
+            <div className="destination-card" > 
               <img src={Diani} alt="Diani Beach" />
               <h3>Diani Beach</h3>
               <p>Relax on white sandy beaches with turquoise waters.</p>
             </div>
-            <div className="destination-card" onClick={() => handleCardClick("https://en.wikipedia.org/wiki/Mount_Kenya")}> 
+            <div className="destination-card" > 
               <img src={mtKenya} alt="Mount Kenya" />
               <h3>Mount Kenya</h3>
               <p>Hike Africa’s second-highest mountain for breathtaking views.</p>
@@ -119,6 +128,57 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
+      {/* // Carousel Section */}
+<section className="carousel-section">
+  <Slider
+    dots={true}
+    infinite={true}
+    speed={600}
+    slidesToShow={3}
+    slidesToScroll={1}
+    autoplay={true}
+    autoplaySpeed={2000}
+  >
+    <div>
+      <img src={Elephat} alt="Elephant" className="carousel-image" />
+    </div>
+    <div>
+      <img src={michael} alt="michael" className="carousel-image" />
+    </div>
+    <div>
+      <img src={Ostrich} alt="Ostrich" className="carousel-image" />
+    </div>
+    <div>
+      <img src={leopard} alt="leopard" className="carousel-image" />
+    </div>
+    <div>
+      <img src={animalsZ} alt="animalsZ" className="carousel-image" />
+    </div>
+
+    <div>
+      <img src={eatingbeast} alt="eatingbeast" className="carousel-image" />
+    </div>
+    <div>
+      <img src={redcharlie} alt="redcharlie" className="carousel-image" />
+    </div>
+    <div>
+      <img src={runingbeast} alt="runingbeast" className="carousel-image" />
+    </div>
+    <div>
+      <img src={Antelopes} alt="Antelopes" className="carousel-image" />
+    </div>
+    <div>
+      <img src={buffalo} alt="Buffalo" className="carousel-image" />
+    </div>
+    <div>
+      <img src={p} alt="p" className="carousel-image" />
+    </div>
+    <div>
+      <img src={About} alt="about-" className="carousel-image" />
+    </div>
+  </Slider>
+</section>
+
       < ReviewSection/>
       <Partnerships/>
       {/* FAQ Section */}

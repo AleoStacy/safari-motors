@@ -122,3 +122,64 @@
   justify-items: center;
   text-align: center; */
 }
+.add-review-button {
+  background-color: #8B4513;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  /* border-radius: 10px; */
+  cursor: pointer;
+  margin-bottom: 20px;
+  /* font-weight: bold; */
+}
+
+.add-review-button:hover {
+  background-color: #5A3310;
+}
+
+.review-form {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.review-form input,
+.review-form select,
+.review-form textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #e5e5e5;
+  /* border-radius: 10px; */
+  outline: none;
+}
+
+.review-form textarea {
+  height: 80px;
+}
+
+.review-form button {
+  background-color: #8B4513;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  /* border-radius: 10px; */
+  cursor: pointer;
+  gap: 40px;
+}
+
+.review-form button:hover {
+  background-color: #5A3310;
+}
+
+.close-button {
+  margin-bottom: 15px;
+  cursor: pointer;
+  color: red;
+  font-weight: bold;
+  padding-left: 20px;
+}
