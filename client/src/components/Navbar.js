@@ -40,7 +40,7 @@ const Navbar = ({ setUser, user }) => {
         {/* <li><Link to="/services">Services</Link></li> */}
         <li><Link to="/safari">Safari</Link></li>
         <li><Link to="/contacts">Contact</Link></li>
-        <li><Link to="/">Products & Services</Link></li>
+        {/* <li><Link to="/">Products & Services</Link></li> */}
 
       </ul>
       {/* <div className="auth-links"> */}
