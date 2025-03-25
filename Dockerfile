@@ -6,7 +6,7 @@ RUN apk add --no-cache python3 make g++ postgresql-client
 WORKDIR /app
 
 # Copy only the Strapi backend folder
-COPY my-strapi-backend ./
+COPY my-strapi-project ./
 
 # Install dependencies including PostgreSQL driver
 RUN npm install pg --save && npm install
