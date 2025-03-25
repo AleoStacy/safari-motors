@@ -9,7 +9,7 @@ const Safari = () => {
   const[safaris,setSafaris]=useState([])
   
   function getSafaris(){
-    fetch(`http://localhost:1337/api/safari-destinations?populate=image`)
+    fetch(`https://safari-motors-production.up.railway.app/api/safari-destinations?populate=image`)
     .then(response=>response.json())
     .then(data=>setSafaris(data.data))
     .then(data=>console.log(data))

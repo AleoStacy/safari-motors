@@ -39,7 +39,7 @@ const LandingPage = () => {
 
   function findFaqs(){
     try{
-    fetch('http://localhost:1337/api/faqs')
+    fetch('https://safari-motors-production.up.railway.app/api/faqs')
     .then((response) => {
       if (!response.ok) {
       }

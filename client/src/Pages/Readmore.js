@@ -43,7 +43,7 @@ function TripDetails() {
   async function getSafari() {
     try {
       const response = await fetch(
-        `http://localhost:1337/api/safari-destinations/${id}?populate=*`
+        `https://safari-motors-production.up.railway.app/api/safari-destinations/${id}?populate=*`
       );
       const event = await response.json();
 
@@ -76,7 +76,7 @@ function TripDetails() {
    
 
     try {
-      const response = await fetch("http://localhost:1337/api/safari-bookings", {
+      const response = await fetch("https://safari-motors-production.up.railway.app/api/safari-bookings", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

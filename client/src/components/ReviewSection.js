@@ -17,7 +17,7 @@ const ReviewSection = () => {
 
   function getReviews(){
     setLoading(true);
-    fetch("http://localhost:1337/api/reviews")
+    fetch("https://safari-motors-production.up.railway.app/api/reviews")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -71,7 +71,7 @@ const ReviewSection = () => {
     
     
 
-    fetch("http://localhost:1337/api/reviews", {
+    fetch("https://safari-motors-production.up.railway.app/api/reviews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

@@ -8,7 +8,7 @@ function ForgotPassword() {
   const handleForgotPassword = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:1337/api/auth/forgot-password", {  
+      const response = await fetch("https://safari-motors-production.up.railway.app/api/auth/forgot-password", {  
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),

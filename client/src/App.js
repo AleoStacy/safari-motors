@@ -15,7 +15,7 @@ function App() {
     try {
       //console.log("Checking session with token:", token); // Debugging
 
-      const response = await fetch("http://localhost:1337/api/users/me", {
+      const response = await fetch("https://safari-motors-production.up.railway.app/api/users/me", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,

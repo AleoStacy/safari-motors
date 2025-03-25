@@ -12,7 +12,7 @@ const Contact = () => {
     
     e.preventDefault();
     try{
-      const response = await fetch(`http://localhost:1337/api/contacts`,{
+      const response = await fetch(`https://safari-motors-production.up.railway.app/api/contacts`,{
         method:"POST",
         headers: {
           "Content-Type": "application/json"

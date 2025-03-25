@@ -30,7 +30,7 @@ const Signup = () => {
 
     try {
       
-      const response = await fetch("http://localhost:1337/api/auth/local/register", {
+      const response = await fetch("https://safari-motors-production.up.railway.app/api/auth/local/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
