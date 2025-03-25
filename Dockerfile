@@ -20,5 +20,5 @@ ENV NODE_ENV=production
 # Expose the port Strapi will run on
 EXPOSE 1337
 
-# Start the Strapi application
-CMD ["npm", "run", "start"]
+# Start script to seed the DB before running Strapi
+CMD ["sh", "-c", "npm run seed:example && npm run start"]
